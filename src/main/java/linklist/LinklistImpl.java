@@ -1,6 +1,5 @@
-/**
- * Created by gauravagnihotri on 25/01/19.
- */
+package linklist;
+
 public class LinklistImpl implements Linklist {
     private class List {
         private int data;

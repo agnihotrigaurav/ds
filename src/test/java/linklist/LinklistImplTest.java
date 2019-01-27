@@ -1,17 +1,16 @@
 package linklist;
 
 import org.junit.jupiter.api.Test;
-import java.linklist.Linklist;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Created by gauravagnihotri on 25/01/19.
- */
 class LinklistImplTest {
     @Test
     void isEmpty() {
         Linklist linklist = new LinklistImpl();
+        assertTrue (linklist.isEmpty());
+
+        linklist.addElementAtTop(2);
+        assertFalse(linklist.isEmpty());
     }
 
     @Test
@@ -24,10 +23,20 @@ class LinklistImplTest {
 
     @Test
     void reverseList() {
+        int []a = {1, 2, 3, 4};
+        Linklist linklist = createList(a);
+        linklist.printListFromStart();
+        linklist.reverseList();
+        linklist.printListFromStart();
     }
 
     @Test
     void reverseListItteratively() {
+        int []a = {1, 2, 3, 4};
+        Linklist linklist = createList(a);
+        linklist.printListFromStart();
+        linklist.reverseListItteratively();
+        linklist.printListFromStart();
     }
 
     @Test
@@ -38,4 +47,12 @@ class LinklistImplTest {
     void countItteratively() {
     }
 
+    private Linklist createList(int []args) {
+        Linklist linklist = new LinklistImpl();
+        for (int i : args) {
+            linklist.addElementAtTop(i);
+        }
+        return linklist;
+
+    }
 }
