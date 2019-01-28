@@ -8,4 +8,6 @@ public interface Linklist {
     public void printListFromStart();
     public void reverseList();
     public void reverseListItteratively();
+    public Integer middleOfList();
+    public int count();
 }

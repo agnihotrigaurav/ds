@@ -1,15 +1,14 @@
+
 package linklist;
+import java.lang.Integer;
 
 public class LinklistImpl implements Linklist {
-    private class List {
-        private int data;
-        public List next;
-        List(int data){
-            this.data = data;
-            next = null;
-        }
-    };
+
     private List list;
+
+    public List getList() {
+        return list;
+    }
 
     public Boolean isEmpty() {
         return list == null ? true : false;
@@ -84,6 +83,7 @@ public class LinklistImpl implements Linklist {
     public int count() {
         return count(list);
     }
+
     public int countItteratively() {
         int result = 0;
         List head = list;
@@ -98,5 +98,24 @@ public class LinklistImpl implements Linklist {
             return 0;
         }
         return count(head.next) + 1;
+    }
+
+    public Integer middleOfList() {
+        List slow = list;
+        List fast = list;
+
+        if(fast == null) {
+            return null;
+        }
+        while(fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
+            if(fast.next == null) {
+                break;
+            }
+            fast  = fast.next;
+        }
+        return slow.data;
+
     }
 }
